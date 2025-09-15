@@ -1,0 +1,164 @@
+.med-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.med-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 15px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  width: 90%;
+  height: 200px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+
+
+.med-card:hover {
+  transform: translateY(-3px);
+  color: black;
+}
+
+.med-image {
+  width: 25%;
+  height: 90%;
+  flex-shrink: 0;
+}
+
+.med-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.med-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.med-title,
+.med-distance,
+.med-location {
+  flex: 1;
+  text-align: center;
+}
+
+.med-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.med-distance {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.med-location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.med-location svg {
+  margin-right: 6px;
+}
+
+.button{
+    border-radius: 50px;
+    background-color: #136169;
+    color: white;
+    padding: 20px;
+    width: 15rem;
+    font-weight: "";
+    font-size: 20px;
+    border: none;
+}
+
+/* Existing layout (for big screens) stays the same */
+
+/* --- Mobile Responsive --- */
+@media (max-width: 650px) {
+  .med-card {
+    flex-direction: row;       /* image left, details right */
+    height: auto;
+    align-items: center;
+  }
+
+  .med-list{
+    padding: 0px;
+  }
+
+  .med-image {
+    width: 40%;                /* take left portion */
+    height: auto;
+  }
+
+  .med-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;    /* stack title, segment, button vertically */
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 12px;
+    gap: 8px;
+  }
+
+  .med-title {
+    text-align: left;
+    font-size: 1.1rem;
+  }
+
+  .med-distance {
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  .med-location {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .button {
+    display: flex;
+    justify-content: space-evenly;  /* Buy text on left, price on right */
+    align-items: center;
+    gap: 4px;
+    border-radius: 50px;
+    background-color: #136169;
+    color: white;
+    padding: 5px 2px;
+    width: 70%;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  .button::after {
+    content: " 10% off";
+    font-size: 0.8rem;
+    /* margin-left: auto; */
+    color: #fff;
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #136169;
+  padding: 12px 30px;
+  height: 90px;
+  color: white;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.header-links{
+  color: white;
+}
+
+
+.logo span {
+  color: white;
+}
+
+.social-icons,
+.actions {
+  display: flex;
+  gap: 20px;
+  /* background-color: aliceblue; */
+  width: auto;
+}
+
+.header-icons{
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+@media(max-width:650px){
+  .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1361694D;
+  padding: 12px 30px;
+  height: 90px;
+  color: white;
+}
+
+.header-links{
+  color: black;
+}
+}

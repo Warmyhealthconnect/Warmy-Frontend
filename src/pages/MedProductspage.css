@@ -1,0 +1,130 @@
+.product-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background-color: #f5fcff;
+  min-height: 100vh;
+}
+
+/* Image */
+.product-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+/* Info Box */
+.product-info {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f1f1f1;
+  border-radius: 20px;
+  padding: 6px 12px;
+}
+
+.quantity-control button {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.quantity-control span {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Description */
+.product-description {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.product-description h4 {
+  margin-bottom: 6px;
+}
+
+/* Footer */
+.product-footer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  flex: 1;
+}
+
+.add-to-cart {
+  flex: 2;
+  padding: 12px;
+  background: #136169;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.whatsapp-btn {
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* -------- Responsive -------- */
+@media (min-width: 768px) {
+  .product-page {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .product-image img {
+    max-width: 450px;
+    margin-bottom: 0;
+  }
+
+  .product-info {
+    max-width: 600px;
+  }
+}

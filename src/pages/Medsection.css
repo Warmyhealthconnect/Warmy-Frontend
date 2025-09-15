@@ -1,0 +1,100 @@
+
+
+.location-box,
+.input-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.location-box span {
+    font-weight: 500;
+}
+
+.divider {
+    width: 1px;
+    height: 28px;
+    background: #ccc;
+    margin: 0 15px;
+}
+
+.input-box {
+    flex: 1;
+    /* ✅ takes remaining space */
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.search-text {
+    font-size: 30px;
+}
+
+.bropdownbtn:focus,
+.bropdownbtn:active {
+    box-shadow: none;
+    outline: none;
+}
+
+.dropdown-menu {
+    margin-top: 20px;
+}
+
+.medbox-section {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+    /* background-color: #333; */
+}
+
+.medboxes {
+    position: relative;
+    width: 320px;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none; /* remove link underline */
+    color: inherit;
+}
+
+.medboxes:hover {
+    transform: translateY(-8px);
+}
+
+.medboxes img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  /* 🔽 make border-radius visible */
+  border-radius: 50px;
+  /* rounded corners now visible */
+  padding: 10px 15px;
+  /* spacing so content isn’t touching edges */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* optional */
+}
+
+@media(max-width:650px) {
+  .search-container {
+    width: 90%;
+    border-radius: 50px;
+  }
+}

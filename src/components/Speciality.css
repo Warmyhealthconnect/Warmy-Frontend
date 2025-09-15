@@ -1,0 +1,141 @@
+.healthcare-container {
+  background-color: #136169;
+  border-radius: 10px;
+  padding: 50px;
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.speciality-header {
+  margin-bottom: 50px;
+}
+
+.speciality-header h1 {
+  color: black;
+  font-size: 32px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.speciality-header .highlight {
+  color: white;
+}
+
+.provider-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* default desktop */
+  gap: 30px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.provider-card {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 380px;
+  cursor: pointer;
+  height: 100px;
+  min-height: 80px;
+  transition: transform 0.2s ease;
+}
+
+.provider-card:hover {
+  transform: translateY(-2px);
+}
+
+.icon {
+  font-size: 40px;
+}
+
+.provider-name {
+  font-size: 22px;
+  font-weight: 500;
+  color: black;
+}
+
+/* ✅ Tablet (between 768px and 1023px) */
+@media (max-width: 1023px) and (min-width: 651px) {
+  .provider-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .provider-card {
+    max-width: 320px;
+  }
+
+  .provider-name {
+    font-size: 18px;
+  }
+}
+
+/* ✅ Mobile (<=650px) */
+@media (max-width: 650px) {
+  .healthcare-container {
+    background-color: #b8d0d2; /* new bg only on mobile */
+    padding: 20px;
+    width: 95%;
+    height: 456px;
+  }
+
+  /* hide header */
+  .speciality-header {
+    display: none !important;
+  }
+
+  .provider-grid {
+    grid-template-columns: repeat(5, 1fr); /* 5 icons per row */
+    gap: 12px;
+    justify-items: center;
+  }
+
+  .provider-card {
+    background: transparent;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    padding: 8px 5px;
+    gap: 6px;
+  }
+
+  /* round icon */
+  .icon {
+    width: 75px;
+    height: 75px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #136169;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .provider-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: black;
+    text-align: center;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 532px) {
+  .provider-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 icons per row */
+  }
+}

@@ -1,0 +1,127 @@
+.pharmacy-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.pharmacy-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 15px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  width: 90%;
+  height: 200px;
+  margin-top: 10px;
+}
+
+.pharmacy-card:hover {
+  transform: translateY(-3px);
+}
+
+.pharmacy-image {
+  width: 25%;
+  height: 90%;
+  flex-shrink: 0;
+}
+
+.pharmacy-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.pharmacy-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.pharmacy-title,
+.pharmacy-distance,
+.pharmacy-location {
+  flex: 1;
+  text-align: center;
+}
+
+.pharmacy-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.pharmacy-distance {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.pharmacy-location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.pharmacy-location svg {
+  margin-right: 6px;
+}
+
+/* 🔍 Search box */
+.search-container {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 50px;
+  padding: 10px 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 📱 Responsive changes ONLY for small screens */
+@media (max-width: 650px) {
+  .pharmacy-card {
+    flex-direction: row;
+    /* keep image left + info right */
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .pharmacy-image {
+    width: 50%;
+    /* bigger image on small screens */
+    height: auto;
+  }
+
+  .pharmacy-info {
+    flex: 1;
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+    /* stack inside info */
+    align-items: flex-start;
+    /* left align text */
+    justify-content: center;
+    gap: 6px;
+    /* spacing between lines */
+    font-size: 1rem;
+  }
+
+  .pharmacy-title,
+  .pharmacy-distance,
+  .pharmacy-location {
+    flex: unset;
+    text-align: left;
+    /* align left */
+    width: auto;
+  }
+}

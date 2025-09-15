@@ -1,0 +1,133 @@
+.payment-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.payment-heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+/* -------- UPI Rectangle -------- */
+.payment-upi {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.upi-option {
+  flex: 1;
+  min-width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border 0.2s ease, transform 0.2s ease;
+}
+
+.upi-option:hover {
+  background: #f3fafa;
+  transform: translateY(-2px);
+}
+
+.upi-option.selected {
+  border: 2px solid #136169;
+  background: #e6f4f4;
+}
+
+.upi-logo {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.upi-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* -------- Other Payment Cards -------- */
+.payment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payment-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s ease, border 0.2s ease, background 0.2s ease;
+}
+
+.payment-card:hover {
+  background: #f3fafa;
+  transform: translateY(-2px);
+}
+
+.payment-card.selected {
+  border: 2px solid #136169;
+  background: #e6f4f4;
+}
+
+.payment-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.payment-logo {
+  font-size: 2rem;
+}
+
+.payment-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* ----------- Responsive Layout ----------- */
+
+/* Big Screens - wider cards (50% look) */
+@media (min-width: 900px) {
+  .payment-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .payment-card {
+    width: 80%;
+  }
+}
+
+/* Phone Layout */
+@media (max-width: 650px) {
+  .payment-upi {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .upi-option {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .payment-card {
+    width: 100%;
+  }
+}
