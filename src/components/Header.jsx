@@ -1,12 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import './Header.css';
 
 export default function Header() {
+  const { pathname } = useLocation();
+
+  // map routes to a mode name (landing / about / default / whatever)
+  const headerMode =
+    pathname === "/" ? "landing" :
+    pathname === "/about" ? "about" :
+    "default";
+
   return (
-    <header className="site-header">
+    <header className={`site-header site-header--${headerMode}`}>
       <div className="header__left">
         <Link to="/" className="logo" aria-label="Warmy home">
           <img src="/Warmy Logo.png" alt="Warmy logo" />
@@ -22,12 +30,11 @@ export default function Header() {
         </ul>
       </nav>
 
-
       <div className="header__right">
         <button className="icon-btn" aria-label="Search"><CiSearch size={20} /></button>
         <button className="icon-btn" aria-label="Cart"><MdOutlineShoppingCart size={20} /></button>
-        <button className="btn">Login</button>
-        <button className="btn btn--primary">Sign up</button>
+        <button className="btn login-btn">Login</button>
+        <button className="btn signin-btn">Sign up</button>
       </div>
     </header>
   );

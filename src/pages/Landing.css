@@ -5,18 +5,28 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.341), rgba(0,0,0,0.5)),  url('/landing.jpg');
     background-position:top ;
     background-size: 114%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-group{
+    /* background-color: aqua; */
+    width: 800px;
 }
 
 .title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #136169;
+    font-size: 80px;
+    font-weight: 500;
+    color: white;
 }
 
 .subtitle {
     margin-top: 10px;
-    color: #222;
+    color: white;
     font-size: 17px;
+    text-align: center;
 }
 
 .search-box {

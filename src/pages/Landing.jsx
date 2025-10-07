@@ -31,15 +31,13 @@ function Landing() {
     <>
       {/* Hero Section */}
       <section className="landing">
-        {/* <h1 className="title">One Tap to Care</h1>
-        <p className="subtitle mt-4">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text
-        </p> */}
-        {/* <div className="search-box shadow">
-          <FiSearch className="search-icon" />
-          <input type="text" placeholder="Find your services..." />
-        </div> */}
+        <div className="text-group">
+          <h1 className="title">Healthcare Made Simple for You</h1>
+          <p className="subtitle mt-4">
+            Warmy is on a mission to make quality healthcare affordable and accessible for over a billion+ Peolpes. We believe in empowering our users with the most accurate, comprehensive, and curated information and care, enabling them to make better healthcare decisions.
+          </p>
+          <button className="btn">Explore Service</button>
+        </div>
       </section>
 
       {/* Services Section */}
@@ -52,7 +50,7 @@ function Landing() {
         ))}
       </section>
 
-      <Speciality/>
+      <Speciality />
     </>
   );
 }
