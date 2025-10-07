@@ -1,10 +1,10 @@
 .landing {
-    height: 650px;
+    height: 900px;
     text-align: center;
     padding-top: 130px;
-    background-image: url('/landing.jpg');
-    background-position: center;
-    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.341), rgba(0,0,0,0.5)),  url('/landing.jpg');
+    background-position:top ;
+    background-size: 114%;
 }
 
 .title {

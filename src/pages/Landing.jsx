@@ -31,15 +31,15 @@ function Landing() {
     <>
       {/* Hero Section */}
       <section className="landing">
-        <h1 className="title">One Tap to Care</h1>
+        {/* <h1 className="title">One Tap to Care</h1>
         <p className="subtitle mt-4">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           Lorem Ipsum has been the industry's standard dummy text
-        </p>
-        <div className="search-box shadow">
+        </p> */}
+        {/* <div className="search-box shadow">
           <FiSearch className="search-icon" />
           <input type="text" placeholder="Find your services..." />
-        </div>
+        </div> */}
       </section>
 
       {/* Services Section */}
