@@ -1,7 +1,10 @@
 .landing {
-    max-height: 450px;
+    height: 650px;
     text-align: center;
     padding-top: 130px;
+    background-image: url('/landing.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 .title {
