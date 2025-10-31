@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { MdOutlineShoppingCart } from "react-icons/md";
-import './Cart.css'; // Import the dedicated CSS file
-import { FaRegClock } from "react-icons/fa6";
+// import './Cart.css'; // Removed: CSS is now in a separate file block
 
 // Placeholder Icon Components (since we can't install react-icons here)
-// In a real project, these would be imported from 'react-icons/fa6', 'react-icons/fi', etc.
 const MinusIcon = ({ size = 14 }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -17,9 +14,28 @@ const PlusIcon = ({ size = 14 }) => (
     </svg>
 );
 
+// New Clock Icon to replace FaRegClock from react-icons/fa6
+const ClockIcon = ({ size = 20, className = 'cart-logo' }) => (
+    <svg 
+        className={className} 
+        width={size} 
+        height={size} 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        strokeWidth="2" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+    >
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+    </svg>
+);
+
 
 function Cart() {
-    const [isOpen, setIsOpen] = useState(false); // Set to true for demonstration
+    // CRITICAL FIX: Ensure this is FALSE to prevent auto-opening on load.
+    const [isOpen, setIsOpen] = useState(false); 
     const [cartItems, setCartItems] = useState([
         {
             id: 1,
@@ -27,7 +43,7 @@ function Cart() {
             subtitle: '10 Tablets',
             price: 20,
             quantity: 2,
-            image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=200&h=200&fit=crop'
+            image: 'https://placehold.co/75x75/E8A69E/white?text=MED'
         },
         {
             id: 2,
@@ -35,7 +51,15 @@ function Cart() {
             subtitle: '10 Tablets',
             price: 35,
             quantity: 2,
-            image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=200&h=200&fit=crop'
+            image: 'https://placehold.co/75x75/B8D0D2/white?text=PILL'
+        },
+        {
+            id: 3,
+            name: 'Antacid Liquid',
+            subtitle: '200ml bottle',
+            price: 50,
+            quantity: 1,
+            image: 'https://placehold.co/75x75/A4B3A8/white?text=LIQ'
         }
     ]);
 
@@ -45,28 +69,32 @@ function Cart() {
                 item.id === id
                     ? { ...item, quantity: Math.max(1, item.quantity + change) }
                     : item
-            )
+            ).filter(item => item.quantity > 0) // Remove item if quantity drops to 0 (optional logic)
         );
     };
 
     const totalAmount = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const itemTotal = totalAmount;
+    const deliveryFee = 0; // Assuming free delivery for simplicity
+    const finalTotal = itemTotal + deliveryFee;
 
+    // Calculate item count for button badge (optional)
+    const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
-    
     return (
         <>
             <div>
                 <button
-                    className="icon-btn"
+                    className="icon-btn cart-icon-btn"
                     aria-label="Cart"
                     onClick={() => setIsOpen(true)}
                 >
-                    {/* MdOutlineShoppingCart icon replaced with a placeholder */}
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                     </svg>
+                    {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
                 </button>
             </div>
 
@@ -77,21 +105,26 @@ function Cart() {
             <div className={`cart-sidebar ${isOpen ? 'open' : ''}`}>
                 <div className="cart-header">
                     <h2>Your Cart</h2>
-                    <button className="close-btn" onClick={() => setIsOpen(false)}>×</button>
+                    <button className="close-btn" onClick={() => setIsOpen(false)} aria-label="Close cart">×</button>
                 </div>
+                
+                {/* Scrollable Content Area */}
                 <div className="cart-content">
                     <div className="cart-content-box">
+                        
+                        {/* Delivery Time Info */}
                         <div className="cart-header-row">
-                            <FaRegClock size={34} className='cart-logo' />
-                            <h1 className='delivery-time'>Delivery in 10 Minutes</h1>
+                            {/* Using ClockIcon component */}
+                            <ClockIcon size={34} className='cart-logo' /> 
+                            <h3 className='delivery-time'>Delivery in 10 Minutes</h3>
                         </div>
 
-                        {/* Loop through cart items here */}
-                        <div className='cart-items-wrapper'> {/* New wrapper for list */}
+                        {/* Cart Items List */}
+                        <div className='cart-items-wrapper'>
                             {cartItems.map(item => (
-                                <div key={item.id} className='cart-item-card'> {/* Each item is a card */}
+                                <div key={item.id} className='cart-item-card'>
                                     <div className='cart-item-img'>
-                                        <img src={item.image} alt={item.name} className='img-fluid' />
+                                        <img src={item.image} alt={item.name} onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/75x75/f0f0f0/333?text=Item"; }} />
                                     </div>
                                     <div className="cart-med-details">
                                         <p className="item-name">{item.name}</p>
@@ -118,6 +151,36 @@ function Cart() {
                                 </div>
                             ))}
                         </div>
+
+                        {/* Bill Details Section (Inside scrolling content) */}
+                        <div className="bill-details-box">
+                            <h4 className="bill-details-title">Bill details</h4>
+                            <div className="bill-row">
+                                <p>Item Total</p>
+                                <span>₹ {itemTotal.toFixed(2)}</span>
+                            </div>
+                            <div className="bill-row">
+                                <p>Delivery Charge</p>
+                                <span>{deliveryFee > 0 ? `₹ ${deliveryFee.toFixed(2)}` : 'Free'}</span>
+                            </div>
+                            
+                            {/* Total bar for visual separation within bill details */}
+                            <div className="bill-total-bar">
+                                <p className="total-label">Total</p>
+                                <span className="total-amount-display">₹ {finalTotal.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Fixed Checkout Footer (Outside scrolling area) */}
+                <div className="cart-checkout-footer">
+                    <div className="checkout-btn-box">
+                        <div className="total-info">
+                            <span className="total-amount-footer">₹ {finalTotal.toFixed(2)}</span>
+                            <span className="total-label">Grand Total</span>
+                        </div>
+                        <button className="place-order-btn">Place Order</button>
                     </div>
                 </div>
             </div>

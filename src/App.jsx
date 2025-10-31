@@ -11,6 +11,10 @@ import Cart from './pages/Cart'
 import Payment from './pages/Payment'
 import MedProductPage from './pages/MedProductPage'
 import About from './pages/about'
+import Footer from './components/Footer'
+import Contact from './pages/Contact'
+import Services from './pages/Services'
+
 
 
 function App() {
@@ -32,8 +36,11 @@ function App() {
       <Route path='/pay' element={<Payment/>}/>
       <Route path='/prdts' element={<MedProductPage/>}/>
       <Route path='/about' element={<About/>}/>
+      <Route path='/contact' element={<Contact/>}/>
+      <Route path='/services' element={<Services/>}/>
 
      </Routes>
+     <Footer/>
     </>
   )
 }

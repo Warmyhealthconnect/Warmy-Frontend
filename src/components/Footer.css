@@ -1,0 +1,84 @@
+/*
+ * Base Styling and Sizing
+ */
+.warmy-footer {
+    background-color: #004a4e;
+    color: white;
+    height: 700px; /* Fixed height */
+    width: 100%;
+    
+    /* Changed: Use column flex to stack elements */
+    display: flex;
+    flex-direction: column;
+    /* Use padding instead of margins on children to define container space */
+    padding: 50px 10%; 
+    box-sizing: border-box;
+    /* Removed justify-content: space-between, which was causing the gap */
+}
+
+/*
+ * Navigation Styles (Top Section)
+ */
+.footer-nav {
+    display: flex;
+    /* Large gap to match the wide spacing in the image */
+    gap: 12%; 
+    padding-top: 0; /* Align to the top of the footer padding */
+}
+
+.nav-title {
+    font-size: 1.35rem; /* Slightly larger titles for the 700px height */
+    font-weight: 500;
+    margin-bottom: 25px; /* Increased spacing */
+    color: white; /* Title color matching the image */
+}
+
+.nav-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-column li {
+    margin-bottom: 12px;
+}
+
+.nav-column a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.nav-column a:hover {
+    opacity: 1;
+}
+
+/*
+ * Large Logo Text (The key to filling the space)
+ */
+.footer-logo {
+    /* Massive font size using viewport width for dynamic scaling */
+    font-size: 20vw; 
+    font-weight: 900;
+    color: white;
+    line-height: 1; /* Tighten line height */
+    letter-spacing: -2vw; /* Reduce space between letters */
+    
+    /* Push the logo down from the navigation columns */
+    margin-top: auto; 
+    margin-bottom: 0px; 
+    align-self: flex-start; /* Align it to the left side */
+}
+
+/*
+ * Copyright Text
+ */
+.copyright {
+    font-size: 0.9rem;
+    color: white;
+    opacity: 0.7; /* Slightly dimmer than the main text */
+    margin-top: 20px; /* Spacing below the logo */
+    margin-bottom: 0; /* Aligned with the footer bottom padding */
+}

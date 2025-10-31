@@ -2,8 +2,8 @@
     height: 900px;
     text-align: center;
     padding-top: 130px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.341), rgba(0,0,0,0.5)),  url('/landing.jpg');
-    background-position:top ;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.341), rgba(0, 0, 0, 0.5)), url('/landing.jpg');
+    background-position: top;
     background-size: 114%;
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.text-group{
+.text-group {
     /* background-color: aqua; */
     width: 800px;
 }
@@ -53,13 +53,237 @@
     font-size: 1rem;
 }
 
-/* --- Service Boxes Section --- */
+
+/* --- Services / Box Section --- */
+.box-section {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    /* margin-top: 90px; */
+}
+
+.box-heading {
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    align-items: center;
+    padding-top: 6%;
+    line-height: 60px;
+    padding-bottom: 2%;
+}
+
+.box-heading ul {
+    padding: 0;
+    margin: 0;
+}
+
+.box-heading li {
+    font-size: 17px;
+    font-weight: 600;
+    color: #136069;
+}
+
+.box-heading h1 {
+    font-weight: 500;
+    font-size: 45px;
+}
+
 .boxes {
     display: flex;
     justify-content: center;
     gap: 80px;
-    padding: 50px 20px;
     flex-wrap: wrap;
+}
+
+.feature-box {
+    position: relative;
+    width: 350px;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.feature-box:hover {
+    transform: translateY(-8px);
+}
+
+.feature-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(19, 96, 105, 0.7);
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+/* --- Responsive --- */
+@media(max-width:650px) {
+    .box-heading li {
+        font-size: 2rem;
+    }
+
+    .feature-box {
+        width: 180px;
+        height: 200px;
+    }
+
+    .overlay {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+@media(max-width:510px) {
+    .boxes {
+        gap: 20px;
+    }
+
+    .feature-box {
+        width: 140px;
+        height: 160px;
+    }
+
+    .overlay {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+}
+
+.balls-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #136069; */
+
+}
+
+.balls-heading {
+    width: 67%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 7%;
+}
+
+.balls-heading h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+
+}
+
+.balls-heading p {
+    font-size: 30px;
+    color: var(--para-color);
+}
+
+.balls-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    /* spacing between circles */
+    flex-wrap: wrap;
+    /* makes it responsive */
+    width: 100%;
+}
+
+.balls {
+    text-align: center;
+}
+
+.balls img {
+    width: 250px;
+    /* adjust size */
+    height: 250px;
+    /* same as width for perfect circle */
+    border-radius: 50%;
+    object-fit: cover;
+    /* ensures image fills without distortion */
+    display: block;
+}
+
+.balls p {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.speciality {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.speciality-container {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.speciality-heading {
+    width: 67%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 7%;
+}
+
+.speciality-heading h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+
+}
+
+.speciality-heading p {
+    font-size: 30px;
+    color: var(--para-color);
+}
+
+.speciality-boxes {
+    background-color: #E9F2F3;
+    width: 320px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.speciality-boxes h4 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.speciality-boxes p {
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
 }
 
 .feature-box {
@@ -87,22 +311,35 @@
     display: block;
 }
 
-.overlay {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 25px;
-    background: rgba(19, 96, 105, 0.604);
-    color: #fff;
-    font-weight: 600;
+.why-warmy {
+    /* background-color: #136069; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+    height: 600px;
+}
+
+.why-warmy-texts {
+    /* background-color: #E9F2F3; */
+    width: 68%;
     text-align: center;
-    font-size: 1.5rem;
+}
+
+.why-warmy-texts h1 {
+    margin-bottom: 30px;
+}
+
+.why-warmy-texts p {
+    font-size: 25px;
+    color: var(--para-color);
 }
 
 @media(max-width:650px) {
     .landing {
         padding-top: 30px;
-        height: auto;
+        height: 400px;
 
 
     }
@@ -122,13 +359,7 @@
         display: none;
     }
 
-    .boxes {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        padding: 50px 20px;
-        /* flex-wrap: wrap; */
-    }
+
 
     .feature-box {
         position: relative;
@@ -144,24 +375,11 @@
         color: inherit;
     }
 
-    .overlay {
-        padding: 8px 10px;
-        /* 🔽 reduce padding */
-        font-size: 13px;
-        /* 🔽 smaller text */
-        line-height: 1.2;
-        /* tighter spacing */
-    }
+
 }
 
 @media(max-width:510px) {
-    .boxes {
-        display: flex;
-        justify-content: space-around;
-        gap: 5px;
-        padding: 20px 20px;
-        /* flex-wrap: wrap; */
-    }
+
 
     .feature-box {
         position: relative;
@@ -177,4 +395,68 @@
         color: inherit;
     }
 
+}
+
+/* ---------------- Minimal Mobile-only responsive overrides (append to end) ---------------- */
+
+/* Tablet / small laptop */
+@media (max-width: 1024px) {
+  .text-group { width: 90%; max-width: 900px; margin: 0 auto; }
+  .landing {
+    padding-top: 60px;
+    min-height: 60vh;
+    background-size: cover;
+    background-position: center;
+  }
+  .title { font-size: clamp(36px, 5vw, 56px); }
+  .subtitle { font-size: 15px; }
+  .search-box { max-width: 70%; padding: 20px; border-radius: 12px; }
+  .boxes { gap: 48px; }
+  .feature-box { width: 320px; height: 360px; }
+  .overlay { font-size: 1.15rem; padding: 16px; }
+  .balls img { width: 200px; height: 200px; }
+  .speciality-container { gap: 30px; }
+  .speciality-boxes { width: 280px; height: auto; padding: 14px; }
+  .why-warmy { gap: 60px; height: auto; padding: 40px 0; }
+}
+
+/* Regular tablets / large phones */
+@media (max-width: 768px) {
+  .text-group { width: 92%; }
+  .landing {
+    padding-top: 40px;
+    min-height: auto;
+  }
+  .title { font-size: clamp(28px, 6.5vw, 44px); text-align: center; }
+  .subtitle { font-size: 14px; margin: 8px auto 14px; max-width: 92%; }
+  .search-box { max-width: 92%; padding: 12px 16px; box-shadow: 0 6px 12px rgba(0,0,0,0.08); }
+  .boxes { gap: 24px; padding: 0 12px; justify-content: center; }
+  .feature-box { width: 220px; height: 250px; border-radius: 12px; }
+  .overlay { font-size: 1rem; padding: 10px; }
+  .balls-container { gap: 24px; padding: 12px; }
+  .balls img { width: 140px; height: 140px; }
+  .balls p { font-size: 1rem; }
+  .speciality-container { gap: 18px; padding: 0 12px; justify-content: center; }
+  .speciality-boxes { width: 100%; max-width: 420px; height: auto; padding: 16px; text-align: center; }
+  .why-warmy-texts { width: 95%; max-width: 800px; padding: 0 12px; }
+  .why-warmy { padding: 40px 12px; gap: 40px; height: auto; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .landing { padding-top: 24px; padding-bottom: 24px; min-height: auto; }
+  .title { font-size: clamp(20px, 8vw, 32px); }
+  .subtitle { display: none; } /* saves vertical space on tiny screens */
+  .search-box { margin: 14px auto 6px; max-width: 92%; padding: 10px 12px; }
+  .boxes { gap: 12px; padding: 8px; }
+  .feature-box { width: 140px; height: 140px; }
+  .overlay { font-size: 0.8rem; padding: 6px; }
+  .balls-container { gap: 16px; padding: 8px; }
+  .balls img { width: 100px; height: 100px; }
+  .balls p { font-size: 0.9rem; }
+  .speciality-container { gap: 12px; padding: 0 10px; }
+  .speciality-boxes { width: 100%; padding: 12px; }
+  .why-warmy { gap: 28px; padding: 24px 10px; height: auto; }
+  .box-heading { padding-top: 2%; padding-bottom: 2%; line-height: 1.2; }
+  .box-heading h1 { font-size: 24px; }
 }

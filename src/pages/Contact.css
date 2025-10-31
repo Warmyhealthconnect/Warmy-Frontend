@@ -1,0 +1,277 @@
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Use a suitable font */
+    background-color: #f7f9fb; /* Light background for the whole page */
+}
+
+.contact-page {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* 1. Contact Us Header Section (400px height) */
+.contact-header {
+    background-color: #136169; /* Dark teal */
+    color: white;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.contact-header h1 {
+    font-size: 3.5rem; /* Large font for "Contact Us" */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.contact-header p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+/* 2. Drop a Line Section */
+.drop-a-line-section {
+    padding: 60px 5%;
+    background-color: #f7f9fb; /* Match body background */
+    /* text-align: center; */
+}
+
+.drop-a-line-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+    font-weight: 600;
+}
+
+.contact-info-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 80px; /* Space between cards */
+    margin-bottom: 80px; /* Space below cards before the form */
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 180px; /* Minimum width for cards */
+}
+
+.info-card .icon-container {
+    background-color: ""; /* White circle background */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.info-card svg {
+    color: #004a4e; /* Icon color (dark teal) */
+    width: 28px;
+    height: 28px;
+}
+
+.info-card .contact-value {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.info-card .contact-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+
+/* 3. Form Section (900-1000px height) */
+.contact-form-section {
+    display: flex;
+    justify-content: center;
+    padding: 0 5%; /* Horizontal padding */
+    margin-bottom: 100px; /* Space below the form */
+}
+
+.contact-form {
+    background-color: #E9F2F3;
+    border-radius: 15px;
+    padding: 60px 80px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-sizing: border-box;
+    justify-content: flex-start; /* ✅ fixed */
+}
+
+
+.form-row {
+    display: flex;
+    gap: 40px; /* Space between Name/Phone or Email/Location */
+    flex-wrap: wrap; /* Allow form fields to wrap on smaller screens */
+}
+
+.form-group {
+    flex: 1; /* Each group takes equal space */
+    display: flex;
+    flex-direction: column;
+    min-width: 280px; /* Min-width for input fields to prevent squishing */
+}
+
+.form-group.full-width {
+    flex: 1 1 100%; /* Message field takes full width */
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #cce0df; /* Lighter border */
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: white; /* White background for inputs */
+    color: #333;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #006b72; /* Darker teal on focus */
+    box-shadow: 0 0 0 3px rgba(0, 107, 114, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 150px; /* Min height for message field */
+}
+
+.submit-button {
+    background-color: #004a4e; /* Dark teal button */
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start; /* Align to left */
+    transition: background-color 0.3s ease;
+    border-radius: 20px;
+}
+
+.submit-button:hover {
+    background-color: #006b72; /* Slightly lighter teal on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .contact-header h1 {
+        font-size: 3rem;
+    }
+    .contact-header p {
+        font-size: 1.1rem;
+    }
+    .drop-a-line-section h2 {
+        font-size: 2rem;
+    }
+    .contact-info-cards {
+        gap: 40px; /* Reduce gap between cards */
+    }
+    .contact-form {
+        padding: 40px 50px;
+        min-height: 800px; /* Adjust min height for smaller screens */
+    }
+    .form-row {
+        gap: 25px; /* Reduce gap in form rows */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-header {
+        height: 300px; /* Reduce header height */
+    }
+    .contact-header h1 {
+        font-size: 2.5rem;
+    }
+    .contact-header p {
+        font-size: 1rem;
+    }
+    .drop-a-line-section {
+        padding: 40px 3%;
+    }
+    .drop-a-line-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+    .contact-info-cards {
+        flex-direction: column; /* Stack cards vertically */
+        gap: 30px; /* Gap for stacked cards */
+    }
+    .contact-form-section {
+        padding: 0 3%;
+    }
+    .contact-form {
+        padding: 30px;
+        min-height: 700px; /* Further adjust min height for small screens */
+        gap: 20px;
+    }
+    .form-row {
+        flex-direction: column; /* Stack form fields vertically */
+        gap: 20px;
+    }
+    .form-group {
+        min-width: unset; /* Remove min-width to allow full width */
+    }
+    .form-group textarea {
+        min-height: 120px;
+    }
+    .submit-button {
+        width: 100%; /* Full width button on small screens */
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-header {
+        height: 250px;
+    }
+    .contact-header h1 {
+        font-size: 2rem;
+    }
+    .contact-header p {
+        font-size: 0.9rem;
+    }
+    .drop-a-line-section {
+        padding: 30px 2%;
+    }
+    .drop-a-line-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    .contact-form {
+        padding: 20px;
+        min-height: 600px; /* Even smaller min height */
+    }
+}

@@ -1,0 +1,67 @@
+/* Overlay background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+}
+
+/* Popup box */
+.popup-container {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    animation: popupFadeIn 0.3s ease forwards;
+}
+
+.otp_btn{
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+
+.popup-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+
+
+
+
+/* Close button */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Fade in animation */
+@keyframes popupFadeIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
