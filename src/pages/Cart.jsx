@@ -3,8 +3,10 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import './Cart.css'; // Import the dedicated CSS file
 import { FaRegClock } from "react-icons/fa6";
 
+// Hardcoded delivery charge for demonstration
+const DELIVERY_CHARGE = 15;
+
 // Placeholder Icon Components (since we can't install react-icons here)
-// In a real project, these would be imported from 'react-icons/fa6', 'react-icons/fi', etc.
 const MinusIcon = ({ size = 14 }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -17,9 +19,34 @@ const PlusIcon = ({ size = 14 }) => (
     </svg>
 );
 
+// --- New Component: BillDetails ---
+const BillDetails = ({ itemTotal, deliveryCharge }) => {
+    const finalTotal = itemTotal + deliveryCharge;
+
+    return (
+        <div className='bill-details-box'>
+            <h3 className='bill-header'>Bill details</h3>
+            <div className='bill-row'>
+                <span className='bill-label'>Item Total</span>
+                <span className='bill-value'>₹ {itemTotal.toFixed(2)}</span>
+            </div>
+            <div className='bill-row'>
+                <span className='bill-label'>Delivery Charge</span>
+                <span className='bill-value'>₹ {deliveryCharge.toFixed(2)}</span>
+            </div>
+            <div className='bill-total-row'>
+                <span className='bill-total-label'>Total</span>
+                <span className='bill-total-value'>₹ {finalTotal.toFixed(2)}</span>
+            </div>
+        </div>
+    );
+};
+// -----------------------------------
+
 
 function Cart() {
-    const [isOpen, setIsOpen] = useState(false); // Set to true for demonstration
+    // Setting isOpen to true to display the sidebar by default for demonstration
+    const [isOpen, setIsOpen] = useState(true); 
     const [cartItems, setCartItems] = useState([
         {
             id: 1,
@@ -34,7 +61,7 @@ function Cart() {
             name: 'Ibuprofenal - bruwell 400',
             subtitle: '10 Tablets',
             price: 35,
-            quantity: 2,
+            quantity: 1, // Changed quantity to 1 for visual difference
             image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=200&h=200&fit=crop'
         }
     ]);
@@ -49,8 +76,10 @@ function Cart() {
         );
     };
 
-    const totalAmount = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const itemTotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    // Calculation: (20 * 2) + (35 * 1) = 75
 
+    const finalOrderTotal = itemTotal + DELIVERY_CHARGE;
 
     
     return (
@@ -61,7 +90,7 @@ function Cart() {
                     aria-label="Cart"
                     onClick={() => setIsOpen(true)}
                 >
-                    {/* MdOutlineShoppingCart icon replaced with a placeholder */}
+                    {/* Cart icon placeholder */}
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
@@ -79,6 +108,8 @@ function Cart() {
                     <h2>Your Cart</h2>
                     <button className="close-btn" onClick={() => setIsOpen(false)}>×</button>
                 </div>
+                
+                {/* Scrollable Content Area */}
                 <div className="cart-content">
                     <div className="cart-content-box">
                         <div className="cart-header-row">
@@ -86,10 +117,10 @@ function Cart() {
                             <h1 className='delivery-time'>Delivery in 10 Minutes</h1>
                         </div>
 
-                        {/* Loop through cart items here */}
-                        <div className='cart-items-wrapper'> {/* New wrapper for list */}
+                        {/* Cart Items */}
+                        <div className='cart-items-wrapper'> 
                             {cartItems.map(item => (
-                                <div key={item.id} className='cart-item-card'> {/* Each item is a card */}
+                                <div key={item.id} className='cart-item-card'> 
                                     <div className='cart-item-img'>
                                         <img src={item.image} alt={item.name} className='img-fluid' />
                                     </div>
@@ -118,7 +149,22 @@ function Cart() {
                                 </div>
                             ))}
                         </div>
+                        
+                        {/* Bill Details Section (New) */}
+                        <BillDetails 
+                            itemTotal={itemTotal} 
+                            deliveryCharge={DELIVERY_CHARGE} 
+                        />
+
                     </div>
+                </div>
+
+                {/* Fixed Footer: Place Order Button (New) */}
+                <div className="cart-footer">
+                    <button className='place-order-btn'>
+                        <span className='order-total'>₹ {finalOrderTotal.toFixed(2)}</span>
+                        <span>Place Order</span>
+                    </button>
                 </div>
             </div>
         </>

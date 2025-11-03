@@ -296,3 +296,116 @@
   }
 }
 
+/* --- Bill Details Section (NEW) --- */
+.bill-details-box {
+    padding: 18px 0 0;
+    margin-top: 15px; /* Separate from cart items */
+    border-top: 1px dashed #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+.bill-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.bill-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+
+.bill-label {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.bill-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Matching the bold total from the image */
+.bill-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #136169;
+    color: white;
+    padding: 12px 18px;
+    margin-top: 15px; /* Space above the total bar */
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.bill-total-label, .bill-total-value {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+
+/* --- Fixed Footer/Order Button Section (NEW) --- */
+.cart-footer {
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+    /* Ensure it doesn't scroll with the content */
+}
+
+.place-order-btn {
+    width: 100%;
+    height: 55px;
+    background-color: #136169;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    transition: background-color 0.2s;
+}
+
+.place-order-btn:hover {
+    background-color: #0d4a50;
+}
+
+.order-total {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* --- Responsive Adjustments for Bill and Footer --- */
+@media (max-width: 480px) {
+    /* Adjust padding to match the rest of the mobile design */
+    .bill-details-box {
+        padding: 12px 0 0;
+    }
+
+    .bill-total-row {
+        padding: 10px 14px;
+        margin-top: 10px;
+    }
+
+    .bill-total-label, .bill-total-value {
+        font-size: 1rem;
+    }
+
+    .place-order-btn {
+        height: 50px;
+        font-size: 1rem;
+        padding: 0 16px;
+    }
+
+    .order-total {
+        font-size: 1.1rem;
+    }
+}
